@@ -32,7 +32,6 @@ class ResConfigSettings(models.TransientModel):
             reloaded too often. For example, a delay of 1000 (ms) would mean that the view cannot be
             reloaded more than once a second.""")
     
-    @api.multi 
     def set_values(self):
         res = super(ResConfigSettings, self).set_values()
         param = self.env['ir.config_parameter'].sudo()

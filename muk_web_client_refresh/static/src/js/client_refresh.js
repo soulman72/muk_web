@@ -34,7 +34,7 @@ WebClient.include({
 		var self = this;
 		var load_config = this._rpc({
             route: '/config/muk_web_client_refresh.refresh_delay',
-        }).done(function(result) {
+        }).then(function(result) {
         	self.refresh_delay = result.refresh_delay;
             self._reload = _.throttle(self._reload, self.refresh_delay || 1000);
         });

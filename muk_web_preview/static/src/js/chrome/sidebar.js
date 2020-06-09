@@ -62,7 +62,7 @@ Sidebar.include({
                             action_id: item.action.id,
                             context: context,
                         },
-                    }).done(function (result) {
+                    }).then(function (result) {
                     	result.context = new Context(
                     		result.context || {}, contextValues
                     	).set_eval_context(context);

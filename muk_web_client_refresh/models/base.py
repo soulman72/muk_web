@@ -30,7 +30,6 @@ class Base(models.AbstractModel):
     
     _inherit = 'base'
 
-    @api.multi
     def refresh_views(self, model=None, ids=None, user=None, create=False):
         """ Informs the web client to refresh the views that belong to the 
             corresponding model by sending a message to the bus.

@@ -36,10 +36,10 @@
         'muk_web_utils',
     ],
     'data': [
-        "template/assets.xml",
+        # "template/assets.xml",
     ],
     'qweb': [
-        'static/src/xml/*.xml',
+        # 'static/src/xml/*.xml',
     ],
     'images': [
         'static/description/banner.png'

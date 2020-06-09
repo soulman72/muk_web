@@ -34,7 +34,7 @@ fields.FieldBinaryImage.include({
 	willStart: function () {
 		var def = this._rpc({
             route: '/config/muk_web_utils.binary_max_size',
-        }).done(function(result) {
+        }).then(function(result) {
         	this.max_upload_size = result.max_upload_size * 1024 * 1024;
         }.bind(this));
 		return this._super.apply(this, arguments);

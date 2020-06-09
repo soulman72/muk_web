@@ -39,7 +39,7 @@ class AttachmentController(http.Controller):
         attachment = request.env['ir.attachment'].create({
             'name': tmp and "%s (Temporary)" % name or name,
             'datas': base64.b64encode(ufile.read()),
-            'datas_fname': ufile.filename,
+            # 'name': ufile.filename,
             'type': 'binary',
             'public': False,
             'temporary': tmp,
@@ -50,7 +50,7 @@ class AttachmentController(http.Controller):
                 'mimetype': ufile.mimetype,
             })
         base_url = request.env['ir.config_parameter'].sudo().get_param('web.base.url')
-        result = attachment.read(['name', 'datas_fname', 'mimetype', 'checksum', 'access_token'])[0]
+        result = attachment.read(['name', 'mimetype', 'checksum', 'access_token'])[0]
         result['url'] = '%s/web/content/%s?access_token=%s' % (base_url, attachment.id, attachment.access_token)
         return json.dumps(result)
         
