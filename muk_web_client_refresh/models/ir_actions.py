@@ -51,8 +51,8 @@ class ServerActions(models.Model):
     
     @api.model
     def run_action_refresh_multi(self, action, eval_context={}):
-        if not self.env.context.get('refresh_disable', False) and \
-                self.env.recompute and self.env.context.get('recompute', True):
+        if not self.env.context.get('refresh_disable', False) and self.recompute and self.env.context.get('recompute', True):
+                # self.env.recompute and self.env.context.get('recompute', True):
             
             cls = type(self)
             dbname = self.env.cr.dbname
