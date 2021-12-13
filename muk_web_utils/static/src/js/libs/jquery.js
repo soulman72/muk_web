@@ -31,7 +31,7 @@ $.fn.dndHover = function(options) {
         var self = $(this);
         var collection = $();
         var dragenter = function(event) {
-            if (collection.size() === 0) {
+            if (collection.length === 0) {
                 self.trigger('dndHoverStart', [event]);
             }
             collection = collection.add(event.target);
@@ -39,7 +39,7 @@ $.fn.dndHover = function(options) {
         var dragleave = function(event) {
             setTimeout(function() {
                 collection = collection.not(event.target);
-                if (collection.size() === 0) {
+                if (collection.length === 0) {
                     self.trigger('dndHoverEnd', [event]);
                 }
             }, 1);
